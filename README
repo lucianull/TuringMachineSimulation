@@ -1,0 +1,63 @@
+This example is taken from Sipser 3.9 (page 145) in which the Turing Machine decides the language B={w#w | w∈{0, 1}*}
+The input file given for the Turing Machine is given like this (where sections can be in any order and have any characters in the lines between them):
+
+# where Sigma is the set of input symbols, that is, the set of symbols allowed to appear in the initial tape contents;
+Sigma:
+0
+1
+#
+End
+#
+#
+# where States form a finite, non-empty set of states
+States:
+q1, S
+q2
+q3
+q4
+q5
+q6
+q7
+q8
+q9, A
+End
+#
+#
+# where Alphabet Symbols is a finite, non-empty set of tape alphabet symbols
+Alphabet Symbols:
+0
+1
+#
+x
+_
+End
+#
+#
+# where the Transition section describes the function delta from the 7-tuple definition of the Turing Machine
+# L or R means in which direction the pointer will move (left or right)
+# 1->x means if the head reads 1 it will overwrite the 1 with x
+# the first and the last symbol means if the condition from above is satisfied, then the Machine will go from the state marked with the first symbol to the state marked with the last symbol
+Transitions:
+q1 1->x, R, q3
+q1 0->x, R, q2
+q1 #->#, R, q8
+q2 0->0, R, q2
+q2 1->1, R, q2
+q2 #->#, R, q4
+q3 0->0, R, q3
+q3 1->1, R, q3
+q3 #->#, R, q5
+q4 x->x, R, q4
+q4 0->x, L, q6
+q5 x->x, R, q5
+q5 1->x, L, q6
+q6 0->0, L, q6
+q6 1->1, L, q6
+q6 x->x, L, q6
+q6 #->#, L, q7
+q7 0->0, L, q7
+q7 1->1, L, q7
+q7 x->x, R, q1
+q8 x->x, R, q8
+q8 _->_, R, q9
+End
