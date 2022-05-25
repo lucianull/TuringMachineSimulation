@@ -87,7 +87,7 @@ class TuringMachine:
 
 
 if __name__ == '__main__':
-    Turing_Machine = TuringMachine("tm_config_file.txt")
+    Turing_Machine = TuringMachine("tm_config_file")
     if Turing_Machine.Validate():
         print("The given input for the Turing Machine is valid")
     else:
